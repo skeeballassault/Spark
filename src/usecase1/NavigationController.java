@@ -52,12 +52,11 @@ public class NavigationController {
     public void getProfileController(Stage theStage){
         ProfileController.getProfileController(theStage);
     }
+    public void getTestController(Stage theStage){
+        TestController.getTestController(theStage);
+    }
     
     public void exit(){
         System.exit(0);
-    }
-
-    void getTestController(Stage theStage) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    } 
 }

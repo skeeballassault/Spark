@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="357.0" prefWidth="556.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="usecase1.ProfileController">
+<AnchorPane id="AnchorPane" prefHeight="357.0" prefWidth="556.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="usecase1.ProfileUI">
    <children>
       <Button layoutX="433.0" layoutY="315.0" mnemonicParsing="false" onAction="#handleSaveChangesButtonAction" text="Save Changes" />
       <TextField fx:id="firstNameField" layoutX="182.0" layoutY="65.0" prefHeight="28.0" prefWidth="193.0" />

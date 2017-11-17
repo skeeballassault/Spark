@@ -13,10 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Text;
 
-/**
- *
- * @author SHaynes
- */
+
 public class TestController {
     
     @FXML private Stage stage;
