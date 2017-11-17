@@ -13,14 +13,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Text;
 
-/**
- *
- * @author SHaynes
- */
+
 public class ProfileController {
        @FXML private Stage stage;
        @FXML private Text actiontarget;
-    private static ProfileController theProfileController;
+    private static ProfileController theProfileController; 
 
      private ProfileController(Stage theExistingStage){
         stage = theExistingStage;
@@ -48,8 +45,10 @@ public class ProfileController {
             e.printStackTrace();
         }
     }
+
+    }
   
-}
+
     
 
 

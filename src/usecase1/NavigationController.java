@@ -13,10 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Text;
 
-/**
- *
- * @author SHaynes
- */
+
 public class NavigationController {
     
     @FXML private Stage stage;
@@ -58,5 +55,9 @@ public class NavigationController {
     
     public void exit(){
         System.exit(0);
+    }
+
+    void getTestController(Stage theStage) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -29,5 +29,9 @@ public class NavigationUI {
     
     @FXML protected void handleUC2ButtonAction(ActionEvent event) {
         actiontarget.setText("Profile Test button pressed");
+        Stage theStage = (Stage) actiontarget.getScene().getWindow();
+        theStage.hide();
+        NavigationController.getNavigationController(theStage).getTestController(theStage);
+
     }
 }
