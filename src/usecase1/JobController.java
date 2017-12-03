@@ -63,5 +63,9 @@ public class JobController {
     public Stage getStage(){
         return stage;
     }
+
+    void addJobRow(Job tempJob) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -22,18 +22,17 @@ import javafx.stage.Stage;
  */
 public class PostJobUI implements Serializable {
      @FXML private Text actiontarget;
-    @FXML private TextField jobNameField;
-    @FXML private TextField jobDescriptionField;
-    
+    private String jobTitle;
+    private String jobDescription;
     @FXML protected void handleSaveButtonAction(ActionEvent event) {
           actiontarget.setText("Save button pressed");
      }
       @FXML
     public void saveButton(){
-        Job tempJob = new Job( jobNameField , jobDescriptionField );
-        Stage theStage = (Stage) saveButton.getScene().getWindow();
-        JobController.getJobController(theStage).addJobRow(tempJob);
+        Job tempJob = new Job(jobTitle , jobDescription);
     }
+
 }
 
+ 
   
