@@ -26,12 +26,25 @@ public class NavigationUI {
         theStage.hide();
         NavigationController.getNavigationController(theStage).getProfileController(theStage);
     }
-    
     @FXML protected void handleUC2ButtonAction(ActionEvent event) {
-        actiontarget.setText("Profile Test button pressed");
+        actiontarget.setText("Personality Test button pressed");
         Stage theStage = (Stage) actiontarget.getScene().getWindow();
         theStage.hide();
         NavigationController.getNavigationController(theStage).getTestController(theStage);
+    }
+    
+    @FXML protected void handleUC3ButtonAction(ActionEvent event) {
+        actiontarget.setText("Post Job button pressed");
+        Stage theStage = (Stage) actiontarget.getScene().getWindow();
+        theStage.hide();
+        NavigationController.getNavigationController(theStage).getPostJobController(theStage);
+    }
+    
+        @FXML protected void handleUC4ButtonAction(ActionEvent event) {
+        actiontarget.setText("Job Seach button pressed");
+        Stage theStage = (Stage) actiontarget.getScene().getWindow();
+        theStage.hide();
+        NavigationController.getNavigationController(theStage).getJobSearchController(theStage);
 
     }
 }

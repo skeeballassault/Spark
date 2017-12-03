@@ -55,6 +55,12 @@ public class NavigationController {
     public void getTestController(Stage theStage){
         TestController.getTestController(theStage);
     }
+     public void getPostJobController(Stage theStage){
+        PostJobController.getPostJobController(theStage);
+    }
+       public void getJobSearchController(Stage theStage){
+        JobSearchController.getJobSearchController(theStage);
+    }
     
     public void exit(){
         System.exit(0);
