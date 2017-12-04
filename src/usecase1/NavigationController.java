@@ -6,18 +6,23 @@
 package usecase1;
 
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Text;
+import javafx.scene.control.Button;
 
 
 public class NavigationController {
     
-    @FXML private Stage stage;
+    @FXML private final Stage stage;
     @FXML private Text actiontarget;
+    @FXML private Text postJob;
+    @FXML private Text personalityTest;
+    @FXML private Text Exit;
+    @FXML private Text searchJob;
+      
     private static NavigationController theNavigationController;
     
     private NavigationController(Stage theExistingStage){

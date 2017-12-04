@@ -11,12 +11,16 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
  
 public class NavigationUI {
+    @FXML private Text jobSearch;
     @FXML private Text actiontarget;
-    
+    @FXML private Text jobPost;
+    @FXML private Text personalityTest;
+    @FXML private Text Exit;
+     
     
     @FXML protected void handleExitButtonAction(ActionEvent event) {
-        actiontarget.setText("Exit button pressed");
-        Stage theStage = (Stage) actiontarget.getScene().getWindow();
+        Exit.setText("Exit button pressed");
+        Stage theStage = (Stage) Exit.getScene().getWindow();
         NavigationController.getNavigationController(theStage).exit();
     }
     
@@ -27,22 +31,22 @@ public class NavigationUI {
         NavigationController.getNavigationController(theStage).getProfileController(theStage);
     }
     @FXML protected void handleUC2ButtonAction(ActionEvent event) {
-        actiontarget.setText("Personality Test button pressed");
-        Stage theStage = (Stage) actiontarget.getScene().getWindow();
+        personalityTest.setText("Personality Test button pressed");
+        Stage theStage = (Stage) personalityTest.getScene().getWindow();
         theStage.hide();
         NavigationController.getNavigationController(theStage).getTestController(theStage);
     }
     
     @FXML protected void handleUC3ButtonAction(ActionEvent event) {
-        actiontarget.setText("Post Job button pressed");
-        Stage theStage = (Stage) actiontarget.getScene().getWindow();
+        jobPost.setText("Post Job button pressed");
+        Stage theStage = (Stage) jobPost.getScene().getWindow();
         theStage.hide();
         NavigationController.getNavigationController(theStage).getPostJobController(theStage);
     }
     
         @FXML protected void handleUC4ButtonAction(ActionEvent event) {
-        actiontarget.setText("Job Seach button pressed");
-        Stage theStage = (Stage) actiontarget.getScene().getWindow();
+        jobSearch.setText("Job Seach button pressed");
+        Stage theStage = (Stage) jobSearch.getScene().getWindow();
         theStage.hide();
         NavigationController.getNavigationController(theStage).getJobSearchController(theStage);
 
