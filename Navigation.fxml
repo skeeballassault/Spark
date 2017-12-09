@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" prefHeight="216.0" prefWidth="293.0" vgap="10" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="usecase1.NavigationUI">
+    <padding><Insets bottom="10" left="25" right="25" top="25" /></padding>
+    
+    <Button fx:id="jobPost" onAction="#handleUC3ButtonAction" prefHeight="25.0" prefWidth="100.0" text="Post Job" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+ 
+    <Button fx:id="personalityTest" onAction="#handleUC2ButtonAction" prefHeight="25.0" prefWidth="100.0" text="Personality Test" GridPane.columnIndex="1" />
+    
+    <Button fx:id="Exit" onAction="#handleExitButtonAction" prefHeight="25.0" prefWidth="100.0" text="Exit" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+   <Button fx:id="actiontarget" onAction="#handleUsersButtonAction" prefHeight="25.0" prefWidth="100.0" text="Profile" />
+   <Button fx:id="jobSearch" onAction="#handleUC4ButtonAction" prefHeight="25.0" prefWidth="100.0" text="Search Jobs" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   
+ 
+    
+
+
+</GridPane>
