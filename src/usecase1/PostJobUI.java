@@ -4,11 +4,13 @@
  * and open the template in the editor.
  */
 package usecase1;
+import java.io.IOException;
 import java.io.Serializable;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
@@ -27,11 +29,19 @@ public class PostJobUI implements Serializable {
     @FXML protected void handleSaveButtonAction(ActionEvent event) {
           actiontarget.setText("Save button pressed");
      }
+    
       @FXML
     public void saveButton(){
         Job tempJob = new Job(jobTitle , jobDescription);
     }
 
+    @FXML protected void handleBackButtonAction(ActionEvent event) throws IOException {
+        actiontarget.setText("Back button pressed");
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.hide();
+        NavigationController theNavigationController = NavigationController.getNavigationController(window);
+            
+    }
 }
 
  

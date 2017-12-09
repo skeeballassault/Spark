@@ -26,6 +26,7 @@ public class ProfileController {
     }
     public static ProfileController getProfileController(Stage theStage){
         if(theProfileController != null){
+            theProfileController.setUpProfileScene();
             return theProfileController;
         }else{
             theProfileController = new ProfileController(theStage);

@@ -28,6 +28,7 @@ public class TestController {
     
     public static TestController getTestController(Stage theStage){
         if(theTestController != null){
+            theTestController.setUpTestScene();
             return theTestController;
         }else{
             theTestController = new TestController(theStage);

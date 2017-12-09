@@ -5,10 +5,12 @@
  */
 package usecase1;
 
+import java.io.IOException;
 import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -23,6 +25,7 @@ public class TestUI {
     @FXML private TextArea questionField;
     @FXML private ChoiceBox questionChoice;
     @FXML private Button nextButton;
+    @FXML private Text actiontarget;
     
     protected String[] questions = new String[20];
     protected String[] answersA = new String[20];
@@ -176,7 +179,11 @@ public class TestUI {
         TestController.getTestController(theStage).getProfileController(theStage);
     }
     
-    @FXML protected void handleUC2ButtonAction(ActionEvent event) {
-        //actiontarget.setText("Profile Test button pressed");
+    @FXML protected void handleBackButtonAction(ActionEvent event) throws IOException {
+        actiontarget.setText("Back button pressed");
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            window.hide();
+            NavigationController theNavigationController = NavigationController.getNavigationController(window);
+            
     }
 }

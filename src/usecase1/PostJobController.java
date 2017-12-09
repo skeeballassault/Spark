@@ -26,6 +26,7 @@ public class PostJobController {
     }
     public static PostJobController getPostJobController(Stage theStage){
         if(thePostJobController != null){
+            thePostJobController.setUpPostJobScene();
             return thePostJobController;
         }else{
             thePostJobController = new PostJobController(theStage);

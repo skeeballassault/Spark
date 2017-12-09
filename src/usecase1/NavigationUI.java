@@ -5,6 +5,7 @@
  */
 package usecase1;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -20,9 +21,8 @@ public class NavigationUI {
      
     
     @FXML protected void handleExitButtonAction(ActionEvent event) {
-        //Exit.setText("Exit button pressed");
-        Stage theStage = (Stage) Exit.getScene().getWindow();
-        NavigationController.getNavigationController(theStage).exit();
+        actiontarget.setText("Exit button pressed");
+        Platform.exit();
     }
     
     @FXML protected void handleUsersButtonAction(ActionEvent event) {

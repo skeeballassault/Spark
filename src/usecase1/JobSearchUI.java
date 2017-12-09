@@ -5,6 +5,7 @@
  */
 package usecase1;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -16,7 +17,10 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 
 /**
@@ -33,9 +37,17 @@ import javafx.scene.control.TextField;
     private TableColumn<Job, String> jobDescriptionColumn  = new TableColumn("Job Description");
     @FXML
     private ObservableList<Job> listOfJobs;
+    @FXML
+    private Text actiontarget;
  
 
-  
+    @FXML protected void handleBackButtonAction(ActionEvent event) throws IOException {
+        actiontarget.setText("Back button pressed");
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            window.hide();
+            NavigationController theNavigationController = NavigationController.getNavigationController(window);
+            
+    }
     
     public void initialize(URL url, ResourceBundle rb) {
         // Get the data for the table

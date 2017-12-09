@@ -30,6 +30,7 @@ public class JobController {
     
     public static JobController getJobController(Stage theStage){
         if(theJobController != null){
+            theJobController.setUpJobListScene();
             return theJobController;
         }else{
             theJobController = new JobController(theStage);

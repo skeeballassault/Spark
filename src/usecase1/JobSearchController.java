@@ -28,6 +28,7 @@ public class JobSearchController {
     }
     public static JobSearchController getJobSearchController (Stage theStage){
         if(theJobSearchController != null){
+            theJobSearchController.setUpJobSearchScene();
             return theJobSearchController;
         }else{
             theJobSearchController = new JobSearchController(theStage);

@@ -32,7 +32,8 @@ public class NavigationController {
     }
     
     public static NavigationController getNavigationController(Stage theStage){
-        if(theNavigationController != null){
+        if(theNavigationController != null){            
+            theNavigationController.setUpNavigationScene();
             return theNavigationController;
         }else{
             theNavigationController = new NavigationController(theStage);
