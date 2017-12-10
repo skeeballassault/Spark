@@ -18,6 +18,8 @@ public class NavigationUI {
     @FXML private Button jobPost;
     @FXML private Button personalityTest;
     @FXML private Button Exit;
+    @FXML private Button companyProfile;
+    @FXML private Button testSuitability;
      
     
     @FXML protected void handleExitButtonAction(ActionEvent event) {
@@ -51,5 +53,18 @@ public class NavigationUI {
         theStage.hide();
         NavigationController.getNavigationController(theStage).getJobSearchController(theStage);
 
+    }
+        @FXML protected void handleUC5ButtonAction(ActionEvent event) {
+        //careerProfile.setText("Career Profile button pressed");
+        Stage theStage = (Stage) companyProfile.getScene().getWindow();
+        theStage.hide();
+        NavigationController.getNavigationController(theStage).getCareerProfileController(theStage);
+
+    }
+          @FXML protected void handleUC6ButtonAction(ActionEvent event) {
+        //testSuitability.setText("Test Suitability button pressed");
+        Stage theStage = (Stage) testSuitability.getScene().getWindow();
+        theStage.hide();
+        NavigationController.getNavigationController(theStage).getTestSuitabilityController(theStage);
     }
 }
