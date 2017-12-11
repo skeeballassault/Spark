@@ -73,6 +73,9 @@ public class NavigationController {
       public void getTestSuitabilityController(Stage theStage){
         TestSuitabilityController.getTestSuitabilityController(theStage);
     }
+        public void getResearchController(Stage theStage){
+        ResearchController.getResearchController(theStage);
+    }
     public void exit(){
         System.exit(0);
     } 

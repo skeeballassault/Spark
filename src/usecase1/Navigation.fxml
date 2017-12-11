@@ -18,6 +18,7 @@
    <Button fx:id="jobSearch" onAction="#handleUC4ButtonAction" prefHeight="25.0" prefWidth="112.0" text="Search Jobs" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    <Button fx:id="companyProfile" onAction="#handleUC5ButtonAction" prefHeight="25.0" prefWidth="112.0" text="Company Profile" GridPane.rowIndex="2" />
    <Button fx:id="testSuitability" onAction="#handleUC6ButtonAction" prefHeight="25.0" prefWidth="112.0" text="Test Suitability" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+   <Button fx:id="researchCareers" onAction="#handleUC7ButtonAction" prefHeight="25.0" prefWidth="112.0" text="Research Careers" GridPane.rowIndex="4" />
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />

@@ -20,6 +20,7 @@ public class NavigationUI {
     @FXML private Button Exit;
     @FXML private Button companyProfile;
     @FXML private Button testSuitability;
+    @FXML private Button researchCareers;
      
     
     @FXML protected void handleExitButtonAction(ActionEvent event) {
@@ -66,5 +67,12 @@ public class NavigationUI {
         Stage theStage = (Stage) testSuitability.getScene().getWindow();
         theStage.hide();
         NavigationController.getNavigationController(theStage).getTestSuitabilityController(theStage);
+         }
+        
+        @FXML protected void handleUC7ButtonAction(ActionEvent event) {
+        //testSuitability.setText("Test Suitability button pressed");
+        Stage theStage = (Stage) researchCareers.getScene().getWindow();
+        theStage.hide();
+        NavigationController.getNavigationController(theStage).getResearchController(theStage);
     }
 }
