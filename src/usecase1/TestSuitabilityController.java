@@ -5,22 +5,29 @@
  */
 package usecase1;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 
 
 public class TestSuitabilityController {
-       @FXML private Stage stage;
-       @FXML private Text actiontarget;
+    @FXML private Stage stage;
+    @FXML private Text actiontarget;
     private static TestSuitabilityController theTestSuitabilityController; 
 
-     private TestSuitabilityController(Stage theExistingStage){
-        stage = theExistingStage;
+    @FXML private ListView listView;
+    
+    private TestSuitabilityController(Stage theStage){
+        this.stage = theStage;
         this.setUpTestSuitabilityScene();
         stage.show();
     }

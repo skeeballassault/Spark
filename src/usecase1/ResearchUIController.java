@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -26,16 +27,12 @@ import javafx.stage.Stage;
  */
 public class ResearchUIController implements Initializable {
 
-  @FXML
-    private TableView<Research> researchTable = new TableView<Research>();
-    @FXML
-    private TableColumn<Research, String> careerColumn = new TableColumn("Career Type");
-    @FXML
-    private TableColumn<Research, String> descriptionColumn  = new TableColumn("Description");;
-    @FXML
-    private ObservableList<Research> listOfResearch;
-    @FXML
-    private Button getSelectedRowButton;
+    @FXML private Text actiontarget;
+    @FXML private TableView<Research> researchTable = new TableView<Research>();
+    @FXML private TableColumn<Research, String> careerColumn = new TableColumn("Career Type");
+    @FXML private TableColumn<Research, String> descriptionColumn  = new TableColumn("Description");;
+    @FXML private ObservableList<Research> listOfResearch;
+    @FXML private Button getSelectedRowButton;
 
 
     /**

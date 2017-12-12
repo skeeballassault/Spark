@@ -5,23 +5,28 @@
  */
 package usecase1;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 
-
-public class TestController {
-    
+public class TestController{
     @FXML private Stage stage;
     @FXML private Text actiontarget;
     private static TestController theTestController;
     
-    private TestController(Stage theExistingStage){
-        stage = theExistingStage;
+    @FXML private ListView listView;
+    
+    private TestController(Stage theStage){
+        this.stage = theStage;
         this.setUpTestScene();
         stage.show();
     }
@@ -50,11 +55,8 @@ public class TestController {
         }
     }
     
-    public void getProfileController(Stage theStage){
-        ProfileController.getProfileController(theStage);
-    }
-    
     public void exit(){
         System.exit(0);
     }
+    
 }

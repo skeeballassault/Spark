@@ -13,14 +13,15 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
  
 public class NavigationUI {
-    @FXML private Button jobSearch;
-    @FXML private Button actiontarget;
-    @FXML private Button jobPost;
+    @FXML private Button profile;
     @FXML private Button personalityTest;
-    @FXML private Button Exit;
+    @FXML private Button jobPost;
+    @FXML private Button jobSearch;
     @FXML private Button companyProfile;
     @FXML private Button testSuitability;
     @FXML private Button researchCareers;
+    @FXML private Button exit;
+    @FXML private Text actiontarget;
      
     
     @FXML protected void handleExitButtonAction(ActionEvent event) {

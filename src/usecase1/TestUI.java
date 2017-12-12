@@ -6,26 +6,32 @@
 package usecase1;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Optional;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
- 
-public class TestUI {
-    
+
+/**
+ *
+ * @author Nick
+ */
+public class TestUI implements Initializable{
     @FXML private TextArea questionField;
-    @FXML private ChoiceBox questionChoice;
     @FXML private Button nextButton;
     @FXML private Text actiontarget;
+    @FXML private ListView listView;
     
     protected String[] questions = new String[20];
     protected String[] answersA = new String[20];
@@ -39,13 +45,99 @@ public class TestUI {
     protected int counterJP = 0;
     
     protected String testResult = "";
-    
+    boolean viewed = false;
+       
     @FXML protected void handleNextButtonAction(ActionEvent event) {
+        configureQuestions();
+                
+        questionCounter++;
         
-        //actiontarget.setText("Exit button pressed");
-        //Stage theStage = (Stage) questionField.getScene().getWindow();
-        //TestController.getTestController(theStage).exit();
-        
+        if (questionCounter <= 19) {
+            char choiceLetter = listView.getSelectionModel().getSelectedItem().toString().charAt(0);
+            boolean choiceBool=true;
+            if (choiceLetter == 'a') {
+                choiceBool = true;
+            } else if (choiceLetter == 'b') {
+                choiceBool = false;
+            }
+            
+            int counterDeterminer = (questionCounter + 1) % 4;
+            if(choiceBool==true){
+                switch (counterDeterminer) {
+                    case 0: counterEI++; break;
+                    case 1: counterSN++; break;
+                    case 2: counterTF++; break;
+                    case 3: counterJP++; break;
+                }
+            }
+            questionField.setText(questions[questionCounter]);
+            listView.setItems(FXCollections.observableArrayList(answersA[questionCounter], answersB[questionCounter]));
+            actiontarget.setText("Question Counter: " + Integer.toString(questionCounter) 
+                    + " | E/I Counter: " + Integer.toString(counterEI)
+                    + " | S/N Counter: " + Integer.toString(counterSN)
+                    + " | T/F Counter: " + Integer.toString(counterTF)
+                    + " | J/P Counter: " + Integer.toString(counterJP));
+            //questionChoice.setItems(FXCollections.observableArrayList(answersA[questionCounter], answersB[questionCounter]));
+        } else {
+            if (counterEI > 2) {
+                testResult = testResult + "E";
+            } else {
+                testResult = testResult + "I";
+            }
+            if (counterSN > 2) {
+                testResult = testResult + "S";
+            } else {
+                testResult = testResult + "N";
+            }
+            if (counterTF > 2) {
+                testResult = testResult + "T";
+            } else {
+                testResult = testResult + "F";
+            }
+            if (counterJP > 2) {
+                testResult = testResult + "J";
+            } else {
+                testResult = testResult + "P";
+            }
+            //Display results, or back to main menu.
+            if(viewed==false){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Result");
+                alert.setHeaderText("Your results are in!");
+                alert.setContentText("Your personality type has been determined to be " + testResult);
+                viewed = true;
+                alert.showAndWait();
+            }else{
+                Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                window.hide();
+                NavigationController theNavigationController = NavigationController.getNavigationController(window);
+            }
+            
+            
+            /*Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                // THIS IS THE SPOT WHERE THE PROGRAM SHOULD GO BACK TO THE MAIN MENU
+            }*/
+        }     
+    }
+    
+    @FXML protected void handleUsersButtonAction(ActionEvent event) {
+        actiontarget.setText("Back button pressed");
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.hide();
+        NavigationController theNavigationController = NavigationController.getNavigationController(window);
+    }
+    
+    @FXML protected void handleBackButtonAction(ActionEvent event) throws IOException {
+        actiontarget.setText("Back button pressed");
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            window.hide();
+            NavigationController theNavigationController = NavigationController.getNavigationController(window);
+            
+    } 
+    
+    public void configureQuestions(){
+        // Fill question and answer arrays.
         if (questions[0] == null) {
             questions[0] = "1) When you are with a group of people, would you usually rather:";
             questions[1] = "2) Do you usually get along better with:";
@@ -111,79 +203,16 @@ public class TestUI {
             answersB[18] = "b) A person of real feeling?";
             answersB[19] = "b) Routine?";
             
-            questionCounter = -1;
+            questionCounter = 0;
             
         }
-        
-        questionCounter++;
-        
-        if (questionCounter <= 19) {
-            char choiceLetter = questionChoice.getValue().toString().charAt(0);
-            boolean choiceBool;
-            if (choiceLetter == 'a') {
-                choiceBool = true;
-            } else if (choiceLetter == 'b') {
-                choiceBool = false;
-            }
-            
-            int counterDeterminer = (questionCounter + 1) % 4;
-            switch (counterDeterminer) {
-                case 1: counterEI++; break;
-                case 2: counterSN++; break;
-                case 3: counterTF++; break;
-                case 4: counterJP++; break;
-            }
-            questionField.setText(questions[questionCounter]);
-            questionChoice.setItems(FXCollections.observableArrayList(answersA[questionCounter], answersB[questionCounter]));
-        } else {
-            if (counterEI > 2) {
-                testResult = testResult + "E";
-            } else {
-                testResult = testResult + "I";
-            }
-            if (counterSN > 2) {
-                testResult = testResult + "S";
-            } else {
-                testResult = testResult + "N";
-            }
-            if (counterTF > 2) {
-                testResult = testResult + "T";
-            } else {
-                testResult = testResult + "F";
-            }
-            if (counterJP > 2) {
-                testResult = testResult + "J";
-            } else {
-                testResult = testResult + "P";
-            }
-            
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Result");
-            alert.setHeaderText("Your results are in!");
-            alert.setContentText("Your personality type has been determined to be " + testResult);
-            alert.showAndWait();
-            
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK){
-                // THIS IS THE SPOT WHERE THE PROGRAM SHOULD GO BACK TO THE MAIN MENU
-            }
-        }
-        
-                
     }
     
-    @FXML protected void handleUsersButtonAction(ActionEvent event) {
-        //actiontarget.setText("Profile button pressed");
-        Stage theStage = (Stage) questionField.getScene().getWindow();
-        theStage.hide();
-        TestController.getTestController(theStage).getProfileController(theStage);
-    }
-    
-    @FXML protected void handleBackButtonAction(ActionEvent event) throws IOException {
-        actiontarget.setText("Back button pressed");
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            window.hide();
-            NavigationController theNavigationController = NavigationController.getNavigationController(window);
-            
-    }
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        questionField.setText("1) When you are with a group of people, would you usually rather:");
+        listView.getItems().addAll(
+                "a) Join in the talk of the group, or", 
+                "b) Talk individually with people you know well?");
+    }    
 }
